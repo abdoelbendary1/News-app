@@ -24,6 +24,7 @@ class _TabWidgetState extends State<TabWidget> {
       child: Column(
         children: [
           TabBar(
+              tabAlignment: TabAlignment.start,
               dividerHeight: 0,
               onTap: (index) {
                 selectedIndex = index;

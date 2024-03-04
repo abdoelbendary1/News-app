@@ -3,6 +3,7 @@ import 'package:news_app/api/api_manager.dart';
 import 'package:news_app/api/news/news.dart';
 import 'package:news_app/api/source_response/source.dart';
 import 'package:news_app/appThem.dart';
+import 'package:news_app/tabs/homeTab/newsItem.dart';
 
 class NewsWidget extends StatefulWidget {
   NewsWidget({super.key, required this.source});
@@ -15,6 +16,8 @@ class NewsWidget extends StatefulWidget {
 class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return FutureBuilder(
       future: ApiManager.getNewsBySourceId(widget.source.id ?? ""),
       builder: (context, snapshot) {
@@ -52,12 +55,24 @@ class _NewsWidgetState extends State<NewsWidget> {
         }
         var newsList = snapshot.data?.articles ?? [];
         return ListView.builder(
-          itemCount: newsList.length,
+          itemCount: 10,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(newsList[index].author ?? ""),
-            );
+                padding: const EdgeInsets.all(8.0),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    double localHeight = constraints.maxHeight;
+                    double localWidth = constraints.maxWidth;
+
+                    return NewsItem(
+                      height: 300,
+                      width: screenWidth,
+                      article: newsList[index],
+                    );
+                  },
+                )
+                /* child: Text(newsList[index].author ?? ""), */
+                );
           },
         );
       },
