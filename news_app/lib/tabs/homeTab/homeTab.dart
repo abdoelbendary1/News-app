@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/api/api_manager.dart';
+import 'package:news_app/api/category/categoryDM.dart';
 import 'package:news_app/appThem.dart';
 import 'package:news_app/screens/category/categoryTab.dart';
 import 'package:news_app/tabs/homeTab/customTextFormField.dart';
 
 class HomeTab extends StatefulWidget {
-  HomeTab({super.key});
-
+  HomeTab({super.key, required this.category});
+  CategoryDM category;
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
@@ -65,7 +66,7 @@ class _HomeTabState extends State<HomeTab> {
           ),
           Expanded(
             child: FutureBuilder(
-              future: ApiManager.getSourceData(),
+              future: ApiManager.getSourceData(widget.category.id),
               builder: (context, snapshot) {
                 var sourcesList = snapshot.data?.sources ?? [];
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -80,7 +81,7 @@ class _HomeTabState extends State<HomeTab> {
                       const Text("something went wrong"),
                       ElevatedButton(
                           onPressed: () {
-                            ApiManager.getSourceData();
+                            ApiManager.getSourceData(widget.category.id);
 
                             setState(() {});
                           },
@@ -94,7 +95,7 @@ class _HomeTabState extends State<HomeTab> {
                       const Text(""),
                       ElevatedButton(
                           onPressed: () {
-                            ApiManager.getSourceData();
+                            ApiManager.getSourceData(widget.category.id);
                             print("error");
                             setState(() {});
                           },

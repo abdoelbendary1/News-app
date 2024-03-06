@@ -55,7 +55,7 @@ class _NewsWidgetState extends State<NewsWidget> {
         }
         var newsList = snapshot.data?.articles ?? [];
         return ListView.builder(
-          itemCount: 10,
+          itemCount: newsList.length,
           itemBuilder: (context, index) {
             return Padding(
                 padding: const EdgeInsets.all(8.0),

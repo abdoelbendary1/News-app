@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/api/news/article.dart';
@@ -34,13 +35,23 @@ class NewsItem extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25)),
-              child: Image.network(
+              child: CachedNetworkImage(
+                width: width,
+                height: height * 0.6,
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+                imageUrl: article.urlToImage ?? "",
+                placeholder: (context, url) =>
+                    Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
+              /*   Image.network(
                 article.urlToImage ?? "",
                 width: width,
                 height: height * 0.6,
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.high,
-              ),
+              ), */
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, left: 15, top: 15),
