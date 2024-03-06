@@ -47,7 +47,7 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
           SizedBox(
-            height: screenHeight * 0.02,
+            height: screenHeight * 0.01,
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),

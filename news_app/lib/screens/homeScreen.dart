@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/api/api_manager.dart';
 import 'package:news_app/api/category/categoryDM.dart';
 import 'package:news_app/appThem.dart';
 import 'package:news_app/screens/category/category_details.dart';
@@ -13,14 +14,13 @@ class HomeScreen extends StatefulWidget {
 
   CategoryDM? selectedCategory;
 
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   late List<Widget> tabs;
-  int selectedIndex = 0;
+  int selectedIndex = 1;
 
   String iconPath = "assets/images/icons/";
   @override
@@ -32,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
         imagePath: "assets/images/categories/general.png");
     if (widget.selectedCategory == null) {
       widget.selectedCategory = generalCategory;
+    } else {
+      widget.selectedCategory = widget.selectedCategory;
     }
     tabs = [
       HomeTab(
@@ -87,9 +89,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 //TODO Update category
-  void openNewsByCategory(CategoryDM newSelectedCategory) {
+  void openNewsByCategory(CategoryDM newSelectedCategory) async {
     widget.selectedCategory = newSelectedCategory;
+    tabs[0] = HomeTab(category: widget.selectedCategory!);
     selectedIndex = 0;
+    /*  await ApiManager.getSourceData(widget.selectedCategory!.id); */
     setState(() {});
     print(widget.selectedCategory!.id);
   }

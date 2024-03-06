@@ -22,8 +22,8 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: screenHeight * 0.1,
-            width: screenWidth * 0.1,
+            height: screenHeight * 0.08,
+            width: screenWidth * 0.08,
             child: Image.asset(category.imagePath),
           ),
           SizedBox(

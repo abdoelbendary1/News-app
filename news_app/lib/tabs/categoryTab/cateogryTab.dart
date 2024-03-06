@@ -21,7 +21,7 @@ class CategoryTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: screenHeight * 0.07,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -44,13 +44,14 @@ class CategoryTab extends StatelessWidget {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
-                  crossAxisSpacing: 2,
-                  mainAxisSpacing: 0,
-                  childAspectRatio: 3),
-              itemCount: 7,
+                  crossAxisSpacing: 1,
+                  mainAxisSpacing: 2,
+                  childAspectRatio: 4.5),
+              itemCount: categoryList.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
                   child: GestureDetector(
                     onTap: () {
                       onCategoryClick(categoryList[index]);
