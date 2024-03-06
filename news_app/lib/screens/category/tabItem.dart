@@ -10,9 +10,9 @@ class TabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(20),
         color: isSelected ? AppTheme.purplePrimary : AppTheme.greyLighter,
       ),
       margin: EdgeInsets.only(top: 20),
