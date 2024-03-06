@@ -45,8 +45,8 @@ class CategoryTab extends StatelessWidget {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   crossAxisSpacing: 1,
-                  mainAxisSpacing: 2,
-                  childAspectRatio: 4.5),
+                  mainAxisSpacing: 5,
+                  childAspectRatio: 4),
               itemCount: categoryList.length,
               itemBuilder: (context, index) {
                 return Padding(

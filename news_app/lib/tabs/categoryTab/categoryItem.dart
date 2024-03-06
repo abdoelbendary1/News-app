@@ -13,17 +13,17 @@ class CategoryItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: AppTheme.greyLight,
-            width: 1,
+            width: 2,
           )),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: screenHeight * 0.08,
-            width: screenWidth * 0.08,
+            height: screenHeight * 0.1,
+            width: screenWidth * 0.1,
             child: Image.asset(category.imagePath),
           ),
           SizedBox(
@@ -31,7 +31,8 @@ class CategoryItem extends StatelessWidget {
           ),
           Text(
             category.name,
-            style: Theme.of(context).textTheme.titleMedium,
+            style:
+                Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 22),
           )
         ],
       ),
