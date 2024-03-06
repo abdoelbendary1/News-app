@@ -58,21 +58,21 @@ class _NewsWidgetState extends State<NewsWidget> {
           itemCount: newsList.length,
           itemBuilder: (context, index) {
             return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    double localHeight = constraints.maxHeight;
-                    double localWidth = constraints.maxWidth;
+              padding: const EdgeInsets.all(8.0),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  double localHeight = constraints.maxHeight;
+                  double localWidth = constraints.maxWidth;
 
-                    return NewsItem(
-                      height: 300,
-                      width: screenWidth,
-                      article: newsList[index],
-                    );
-                  },
-                )
-                /* child: Text(newsList[index].author ?? ""), */
-                );
+                  return NewsItem(
+                    height: screenHeight * 0.3,
+                    width: screenWidth,
+                    article: newsList[index],
+                  );
+                },
+              ),
+              /* child: Text(newsList[index].author ?? ""), */
+            );
           },
         );
       },

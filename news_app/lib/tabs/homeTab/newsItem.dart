@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/api/news/article.dart';
 import 'package:news_app/appThem.dart';
+import 'package:news_app/providers/bookmarkProvider.dart';
 import 'package:news_app/tabs/homeTab/newsItemScreen.dart';
+import 'package:provider/provider.dart';
 
 class NewsItem extends StatelessWidget {
   NewsItem({
@@ -15,8 +17,10 @@ class NewsItem extends StatelessWidget {
   double width, height;
   Article article;
   String iconPath = "assets/images/icons/";
+
   @override
   Widget build(BuildContext context) {
+    var bookmarkProvider = Provider.of<BookmarkProvider>(context);
     return GestureDetector(
       //go to news page
       onTap: () => Navigator.pushNamed(context, NewsItemScreen.routeName,
@@ -67,7 +71,9 @@ class NewsItem extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        bookmarkProvider.updateSavedList(article);
+                      },
                       icon: Icon(
                         Icons.bookmark_border,
                         size: 40,

@@ -22,8 +22,8 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: screenHeight * 0.1,
-            width: screenWidth * 0.1,
+            height: screenHeight * 0.08,
+            width: screenWidth * 0.08,
             child: Image.asset(category.imagePath),
           ),
           SizedBox(
@@ -31,8 +31,7 @@ class CategoryItem extends StatelessWidget {
           ),
           Text(
             category.name,
-            style:
-                Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 22),
+            style: Theme.of(context).textTheme.titleMedium,
           )
         ],
       ),
