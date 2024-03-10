@@ -9,16 +9,22 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.prefixicon,
     this.obscure = false,
-    required this.controller,
+    this.controller,
+    this.onChanged,
+    this.onTap,
   });
   String hintText;
-  TextEditingController controller = TextEditingController();
+  TextEditingController? controller = TextEditingController();
   Widget? suffixIcon;
   Widget? prefixicon;
   bool obscure;
+  Function(String)? onChanged;
+  void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
+      onTap: onTap,
+      onChanged: (value) => onChanged,
       controller: controller,
       obscureText: obscure,
       decoration: InputDecoration(

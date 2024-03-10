@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/api/api_manager.dart';
 import 'package:news_app/api/category/categoryDM.dart';
 import 'package:news_app/appThem.dart';
-import 'package:news_app/screens/category/category_details.dart';
+import 'package:news_app/screens/newsBasedCategory/category_details.dart';
 import 'package:news_app/tabs/categoryTab/cateogryTab.dart';
 import 'package:news_app/tabs/homeTab/homeTab.dart';
 import 'package:news_app/tabs/saved/savedTab.dart';

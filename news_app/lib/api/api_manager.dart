@@ -22,10 +22,37 @@ class ApiManager {
     }
   }
 
-  static Future<News> getNewsBySourceId(String sourceId) async {
+  static Future<News> getNewsBySourceId({
+    String? sourceId = "",
+    String? page = "2",
+  }) async {
     Uri url = Uri.https(ApiConstant.baseUrl, ApiConstant.newsPath, {
       "sources": sourceId,
       "apiKey": ApiConstant.apiKey,
+      "pageSize": "5",
+      "page": page,
+    });
+    try {
+      var response = await http.get(url);
+      String responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return News.fromJson(json);
+    } catch (e) {
+      print(e);
+      throw e;
+    }
+  }
+
+/* https://newsapi.org/v2/everything?q=apple&from=2024-03-09&to=2024-03-09&sortBy=popularity&apiKey=13b909f3289046b0b94e3423c0cbdeca */
+  static Future<News> searchNews({
+    String? searchText,
+    String? sortBy,
+    String? page,
+  }) async {
+    Uri url = Uri.https(ApiConstant.baseUrl, ApiConstant.newsPath, {
+      "apiKey": ApiConstant.apiKey,
+      "q": searchText,
+      "sortBy": sortBy,
     });
     try {
       var response = await http.get(url);
