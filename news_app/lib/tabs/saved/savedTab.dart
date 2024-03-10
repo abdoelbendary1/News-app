@@ -4,7 +4,7 @@ import 'package:news_app/api/news/article.dart';
 import 'package:news_app/api/source_response/source.dart';
 import 'package:news_app/appThem.dart';
 import 'package:news_app/providers/bookmarkProvider.dart';
-import 'package:news_app/screens/category/news_widget.dart';
+import 'package:news_app/screens/newsBasedCategory/news_widget.dart';
 import 'package:news_app/tabs/homeTab/newsItem.dart';
 import 'package:provider/provider.dart';
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/api/news/article.dart';
 import 'package:news_app/appThem.dart';
-import 'package:news_app/screens/category/tabItem.dart';
+import 'package:news_app/screens/newsBasedCategory/tabItem.dart';
 import 'package:news_app/tabs/homeTab/panelWidget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

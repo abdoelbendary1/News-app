@@ -39,7 +39,7 @@ class NewsItem extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25)),
-              child: CachedNetworkImage(
+              child: /* CachedNetworkImage(
                 width: width,
                 height: height * 0.6,
                 fit: BoxFit.cover,
@@ -48,14 +48,14 @@ class NewsItem extends StatelessWidget {
                 placeholder: (context, url) =>
                     Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => Icon(Icons.error),
-              ),
-              /*   Image.network(
+              ), */
+                  Image.network(
                 article.urlToImage ?? "",
                 width: width,
                 height: height * 0.6,
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.high,
-              ), */
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, left: 15, top: 15),
