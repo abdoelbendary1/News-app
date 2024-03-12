@@ -17,6 +17,7 @@ class AppTheme {
   static const greyPrimary = Color(0xff7C82A1);
   static const greyLight = Color(0xffACAFC3);
   static const greyLighter = Color(0xffF3F4F6);
+  static const redColor = Colors.red;
 
   static ThemeData lightTheme = ThemeData(
       textTheme: const TextTheme(

@@ -4,7 +4,7 @@ import 'package:news_app/appThem.dart';
 
 class TabItem extends StatelessWidget {
   TabItem({super.key, required this.source, required this.isSelected});
-  Source source;
+  SourceApi source;
   bool isSelected;
 
   @override

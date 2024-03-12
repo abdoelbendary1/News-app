@@ -24,12 +24,13 @@ class ApiManager {
 
   static Future<News> getNewsBySourceId({
     String? sourceId = "",
-    String? page = "2",
+    String? page,
+    String? pageSize,
   }) async {
     Uri url = Uri.https(ApiConstant.baseUrl, ApiConstant.newsPath, {
       "sources": sourceId,
       "apiKey": ApiConstant.apiKey,
-      "pageSize": "5",
+      "pageSize": pageSize,
       "page": page,
     });
     try {

@@ -79,7 +79,9 @@ class _HomeTabState extends State<HomeTab> {
                       const Text(""),
                       ElevatedButton(
                           onPressed: () {
-                            ApiManager.getSourceData(widget.category.id);
+                            ApiManager.getSourceData(
+                              widget.category.id,
+                            );
                             print("error");
                             setState(() {});
                           },
@@ -119,6 +121,8 @@ class _HomeTabState extends State<HomeTab> {
                           child: FutureBuilder(
                             future: ApiManager.getNewsBySourceId(
                               sourceId: sourcesList[0].id,
+                              page: "1",
+                              pageSize: "20",
                             ),
                             builder: (context, snapshot) {
                               return CustomTextFormField(

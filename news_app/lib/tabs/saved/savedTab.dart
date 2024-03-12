@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:news_app/FireBaseUtils/FireBaseUtils.dart';
 import 'package:news_app/api/news/article.dart';
 import 'package:news_app/api/source_response/source.dart';
 import 'package:news_app/appThem.dart';
+import 'package:news_app/providers/authProvider.dart';
 import 'package:news_app/providers/bookmarkProvider.dart';
 import 'package:news_app/screens/newsBasedCategory/news_widget.dart';
 import 'package:news_app/tabs/homeTab/newsItem.dart';
@@ -17,6 +19,7 @@ class SavedTab extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     var bookmarkProvider = Provider.of<BookmarkProvider>(context);
+    var authProvider = Provider.of<AuthProviders>(context);
     savedNewsList = bookmarkProvider.savedNewsList;
     return Container(
       decoration: BoxDecoration(
@@ -46,18 +49,29 @@ class SavedTab extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: savedNewsList.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: NewsItem(
-                      height: screenHeight * 0.3,
-                      width: screenWidth,
-                      article: savedNewsList[index]),
-                );
-              },
-            ),
+            child: FutureBuilder(
+                future: FireBaseUtils.getAllArticles(
+                    authProvider.currrentUser?.id ?? ""),
+                builder: (context, snapshot) {
+                  /*  List<String?> filteredList = [];
+                  filteredList =
+                      snapshot.data!.map((e) => e.title).toSet().toList();
+                  snapshot.data!.retainWhere(
+                      (element) => filteredList.remove(element.title)); */
+                  return ListView.builder(
+                    itemCount: snapshot.data?.length ?? savedNewsList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: NewsItem(
+                            height: screenHeight * 0.3,
+                            width: screenWidth,
+                            article:
+                                snapshot.data?[index] ?? savedNewsList[index]),
+                      );
+                    },
+                  );
+                }),
           )
         ],
       ),

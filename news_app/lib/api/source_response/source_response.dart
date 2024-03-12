@@ -2,7 +2,7 @@ import 'source.dart';
 
 class SourceResponse {
   String? status;
-  List<Source>? sources;
+  List<SourceApi>? sources;
 
   SourceResponse({this.status, this.sources});
 
@@ -10,7 +10,7 @@ class SourceResponse {
     return SourceResponse(
       status: json['status'] as String?,
       sources: (json['sources'] as List<dynamic>?)
-          ?.map((e) => Source.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SourceApi.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
   }
