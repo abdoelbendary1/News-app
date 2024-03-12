@@ -121,8 +121,8 @@ class _HomeTabState extends State<HomeTab> {
                           child: FutureBuilder(
                             future: ApiManager.getNewsBySourceId(
                               sourceId: sourcesList[0].id,
-                              page: "1",
-                              pageSize: "20",
+                             /*  page: "1",
+                              pageSize: "20", */
                             ),
                             builder: (context, snapshot) {
                               return CustomTextFormField(

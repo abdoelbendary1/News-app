@@ -86,8 +86,8 @@ class _NewsWidgetState extends State<NewsWidget> {
     return FutureBuilder(
       future: ApiManager.getNewsBySourceId(
         sourceId: widget.source.id,
-        page: "2",
-        pageSize: "5",
+        /*  page: "2",
+        pageSize: "5", */
       ),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -105,8 +105,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                     onPressed: () {
                       ApiManager.getNewsBySourceId(
                         sourceId: widget.source.id,
-                        page: "2",
-                        pageSize: "5",
+                        /*  page: "2",
+                        pageSize: "5", */
                       );
                       setState(() {});
                     },
@@ -124,8 +124,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                   onPressed: () {
                     ApiManager.getNewsBySourceId(
                       sourceId: widget.source.id,
-                      page: "2",
-                      pageSize: "5",
+                      /*  page: "2",
+                      pageSize: "5", */
                     );
                     setState(() {});
                   },
