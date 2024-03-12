@@ -1,4 +1,4 @@
-class Source {
+class SourceApi {
   String? id;
   String? name;
   String? description;
@@ -7,7 +7,7 @@ class Source {
   String? language;
   String? country;
 
-  Source({
+  SourceApi({
     this.id,
     this.name,
     this.description,
@@ -17,7 +17,7 @@ class Source {
     this.country,
   });
 
-  factory Source.fromJson(Map<String, dynamic> json) => Source(
+  factory SourceApi.fromJson(Map<String, dynamic> json) => SourceApi(
         id: json['id'] as String?,
         name: json['name'] as String?,
         description: json['description'] as String?,

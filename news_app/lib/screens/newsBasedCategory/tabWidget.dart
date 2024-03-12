@@ -10,7 +10,7 @@ import 'package:news_app/tabs/homeTab/customTextFormField.dart';
 
 class TabWidget extends StatefulWidget {
   TabWidget({super.key, required this.sourcesList, required this.searchText});
-  List<Source> sourcesList = [];
+  List<SourceApi> sourcesList = [];
   String searchText;
 
   @override
